@@ -61,7 +61,7 @@ Program tidak memerlukan file JSON maupun library eksternal karena basis pengeta
 - Judul: Bacterial Identification of Ornamental Betta Fish (Betta splendens)
 - Penerbit: University of Florida IFAS Extension
 - URL: [https://jurnal.usk.ac.id/JMV/article/view/29323/0]
-- Tanggal akses: [Lengkapi tanggal akses]
+- Tanggal akses: [11 November 2026]
 
 **S2**
 - Judul: Ornamental Fish Health Management
