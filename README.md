@@ -173,7 +173,7 @@ Hasil yang diharapkan:
 
 Screenshot hasil pengujian:
 
-[Masukkan Screenshot Kasus Uji 1]
+[Uji Coba 1.png]
 
 ### Kasus Uji 2: Infeksi
 
