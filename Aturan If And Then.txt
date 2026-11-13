@@ -1,0 +1,53 @@
+======================================================================
+DAFTAR ATURAN (IF-THEN) SISTEM PAKAR DIAGNOSIS PENYAKIT IKAN CUPANG
+Topik: Kesehatan Ikan Cupang 
+Metode: Forward Chaining
+======================================================================
+
+ATURAN 1 (R1)
+- IF (Jika): 
+    * sirip robek atau koyak 
+    * ATAU tepi sirip menghitam
+- MODE: atau
+- THEN (Maka): indikasi infeksi bakteri
+- SUMBER: S1 (Betta Fish Disease Guide, University of Florida IFAS Extension)
+
+ATURAN 2 (R2)
+- IF (Jika): 
+    * indikasi infeksi bakteri [Hasil dari R1]
+    * DAN suhu air terlalu dingin atau kotor
+- MODE: dan
+- THEN (Maka): sirip busuk (fin rot)
+- SUMBER: S1 (Betta Fish Disease Guide, University of Florida IFAS Extension)
+
+ATURAN 3 (R3)
+- IF (Jika): 
+    * tubuh membengkak seperti buah pinus
+    * DAN sisik berdiri
+- MODE: dan
+- THEN (Maka): penyakit dropsy
+- SUMBER: S2 (Ornamental Fish Health Management, Journal of Aquatic Animal Health)
+
+ATURAN 4 (R4)
+- IF (Jika): 
+    * muncul bintik putih seperti garam di tubuh
+    * DAN ikan sering gesekan badan ke dekorasi
+- MODE: dan
+- THEN (Maka): penyakit ich (white spot)
+- SUMBER: S1 (Betta Fish Disease Guide, University of Florida IFAS Extension)
+
+ATURAN 5 (R5)
+- IF (Jika): 
+    * ikan pasif di dasar aquarium
+    * ATAU warna tubuh memudar
+- MODE: atau
+- THEN (Maka): stres lingkungan
+- SUMBER: S2 (Ornamental Fish Health Management, Journal of Aquatic Animal Health)
+
+======================================================================
+CATATAN PENJELASAN:
+1. Fakta awal (gejala dasar) ditanyakan langsung kepada pengguna melalui 
+   program.
+2. Aturan R2 menggunakan hasil dari aturan R1 ("indikasi infeksi bakteri"), 
+   sehingga membentuk rantai inferensi (chaining) yang sesuai dengan ketentuan.
+======================================================================
