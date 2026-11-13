@@ -156,32 +156,40 @@ Sistem menghasilkan kesimpulan berupa kemungkinan masalah kesehatan ikan cupang,
 
 Pengujian dilakukan untuk mengetahui apakah sistem dapat menghasilkan kesimpulan berdasarkan fakta yang dimasukkan pengguna.
 
-### Kasus Uji 1: Sirip Busuk (Fin Rot)
-
+### Kasus Uji 1: Stress Lingkungan
 Input gejala:
-- Sirip robek atau koyak = Ya
-- Tepi sirip menghitam = Tidak
-- Suhu air terlalu dingin atau kotor = Ya
-- Gejala lainnya = Tidak
+Apakah ikan pasif di dasar aquarium? (y/t) > y
+Apakah ikan sering gesekan badan ke dekorasi? (y/t) > t
+Apakah muncul bintik putih seperti garam di tubuh? (y/t) > y
+Apakah sirip robek atau koyak? (y/t) > t
+Apakah sisik berdiri? (y/t) > t
+Apakah suhu air terlalu dingin atau kotor? (y/t) > t
+Apakah tepi sirip menghitam? (y/t) > t
+Apakah tubuh membengkak seperti buah pinus? (y/t) > t
+Apakah warna tubuh memudar? (y/t) > t
 
 Hasil yang diharapkan:
-- R1 menghasilkan indikasi infeksi bakteri.
-- R2 menghasilkan sirip busuk (Fin Rot).
+- R1 Stress Lingkungan.
 
 Screenshot hasil pengujian:
 
 [Masukkan Screenshot Kasus Uji 1]
 
-### Kasus Uji 2: Penyakit Dropsy
+### Kasus Uji 2: Infeksi
 
 Input gejala:
-- Tubuh membengkak seperti buah pinus = Ya
-- Sisik berdiri = Ya
-- Gejala lainnya = Tidak
+Apakah ikan pasif di dasar aquarium? (y/t) > t
+Apakah ikan sering gesekan badan ke dekorasi? (y/t) > t
+Apakah muncul bintik putih seperti garam di tubuh? (y/t) > t
+Apakah sirip robek atau koyak? (y/t) > y
+Apakah sisik berdiri? (y/t) > y
+Apakah suhu air terlalu dingin atau kotor? (y/t) > t
+Apakah tepi sirip menghitam? (y/t) > t
+Apakah tubuh membengkak seperti buah pinus? (y/t) > t
+Apakah warna tubuh memudar? (y/t) > t
 
 Hasil yang diharapkan:
-- R3 terpenuhi.
-- Sistem menghasilkan kesimpulan penyakit Dropsy.
+- R3 Indikasi Infeksi.
 
 Screenshot hasil pengujian:
 
