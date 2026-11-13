@@ -1,61 +1,212 @@
-# Sistem Pakar Identifikasi Kemungkinan Penyakit pada Ikan Cupang
+# SISTEM PAKAR IDENTIFIKASI MASALAH KESEHATAN IKAN CUPANG
 
-## Deskripsi
-Program C++ ini membantu melakukan identifikasi awal kemungkinan gangguan kesehatan ikan cupang berdasarkan gejala yang dimasukkan pengguna. Basis pengetahuan disimpan dalam file JSON terpisah dan diproses menggunakan metode Forward Chaining.
+## **1. Nama dan NIM**
 
-## Struktur file
-- `main.cpp`: mesin inferensi dan kode untuk membaca JSON.
-- `aturan_ikan_cupang.json`: daftar pertanyaan, fakta, aturan IF-THEN, dan kesimpulan.
+- **Nama:** [Muhammad Abdiel Pasya Laundru]
+- **NIM:** [F1D02510080]
+- **Program Studi:** Teknik Informatika
 
-## Kebutuhan
-- Compiler C++ yang mendukung C++17.
-- Library `nlohmann/json`.
+## **2. Topik dan Cara Menjalankan Program**
 
-### Instalasi di Ubuntu
-```bash
-sudo apt update
-sudo apt install g++ nlohmann-json3-dev
+### Topik Program
+
+Program ini merupakan sistem pakar sederhana untuk mengidentifikasi kemungkinan masalah kesehatan pada ikan cupang berdasarkan gejala yang dialami. Sistem dibuat menggunakan bahasa pemrograman C++ dengan metode Forward Chaining.
+
+Program bekerja dengan mengumpulkan gejala dari pengguna, mencocokkannya dengan aturan yang terdapat dalam basis pengetahuan, kemudian menghasilkan kesimpulan berdasarkan aturan yang terpenuhi.
+
+### Bahasa dan Versi
+
+- **Bahasa Pemrograman:** C++
+- **Standar:** C++11 atau lebih baru
+- **Compiler:** GCC / MinGW
+- **Library:** C++ Standard Library
+
+### Library yang Digunakan
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+#include <set>
+#include <algorithm>
 ```
 
-### Kompilasi
-Jalankan dari direktori yang berisi kedua file:
+### Cara Menjalankan Program
+
+**Kompilasi menggunakan GCC:**
+
 ```bash
-g++ -std=c++17 main.cpp -o sistem_pakar
+g++ main.cpp -o sistem_pakar
 ```
 
-### Menjalankan
+**Menjalankan program pada Linux:**
+
 ```bash
 ./sistem_pakar
 ```
 
-Pastikan `aturan_ikan_cupang.json` berada di direktori kerja yang sama ketika program dijalankan.
+**Menjalankan program pada Windows:**
 
-## Cara C++ mengakses JSON
-1. `#include <nlohmann/json.hpp>` menyertakan library JSON.
-2. `ifstream file("aturan_ikan_cupang.json")` membuka file JSON.
-3. `file >> basisPengetahuan` membaca dan mengurai JSON menjadi objek.
-4. `basisPengetahuan.at("gejala")` mengambil daftar pertanyaan.
-5. `basisPengetahuan.at("aturan")` mengambil aturan IF-THEN.
-6. `aturan.at("jika")` membaca kondisi, sedangkan `aturan.at("maka")` membaca hasil aturan.
+```bash
+sistem_pakar.exe
+```
 
-## Ringkasan aturan
-| ID | Kondisi IF | Hasil THEN |
-|---|---|---|
-| R1 | Sirip robek atau berjumbai | Fakta antara: sirip rusak |
-| R2 | Sirip rusak DAN pangkal sirip merah/menghitam | Dugaan Fin Rot |
-| R3 | Bintik putih DAN menggesekkan tubuh | Dugaan White Spot (Ich) |
-| R4 | Mata menonjol | Dugaan Pop-Eye |
-| R5 | Bercak keemasan DAN menggesekkan tubuh | Dugaan Velvet |
-| R6 | Tubuh membengkak DAN sisik terangkat | Dugaan Dropsy |
-| R7 | Ikan lesu DAN nafsu makan menurun | Indikasi gangguan kesehatan |
+Program tidak memerlukan file JSON maupun library eksternal karena basis pengetahuan telah dimasukkan langsung ke dalam kode C++.
 
-## Cara kerja Forward Chaining
-Program mulai dari fakta awal yang berasal dari jawaban pengguna. Kemudian setiap aturan diperiksa. Jika seluruh kondisi AND atau minimal satu kondisi OR terpenuhi, fakta hasil aturan dimasukkan ke memori. Pemeriksaan diulang sampai tidak ada fakta baru. R1 menghasilkan fakta antara `sirip_rusak`, yang dapat digunakan oleh R2.
+## **3. Daftar Sumber dan Tabel Aturan**
 
-## Skenario pengujian
-1. **Fin Rot**: jawab Ya untuk sirip robek dan pangkal sirip merah/menghitam. Hasil yang diharapkan: fakta sirip rusak dan dugaan Fin Rot.
-2. **White Spot**: jawab Ya untuk bintik putih dan ikan sering menggesekkan tubuh. Hasil yang diharapkan: dugaan White Spot (Ich).
-3. **Tanpa kesimpulan**: jawab Ya hanya untuk ikan lesu dan Tidak untuk gejala lainnya. Hasil yang diharapkan: tidak ada kesimpulan dari aturan yang tersedia.
+### Daftar Sumber
 
-## Batasan
-Hasil sistem hanya merupakan dugaan awal berdasarkan gejala yang dipilih. Gejala dapat tumpang tindih dan program tidak menggantikan pemeriksaan dokter hewan atau ahli kesehatan ikan.
+**S1**
+- Judul: Bacterial Identification of Ornamental Betta Fish (Betta splendens)
+- Penerbit: University of Florida IFAS Extension
+- URL: [https://jurnal.usk.ac.id/JMV/article/view/29323/0]
+- Tanggal akses: [Lengkapi tanggal akses]
+
+**S2**
+- Judul: Ornamental Fish Health Management
+- Penerbit: Journal of Aquatic Animal Health
+- URL: [https://ph02.tci-thaijo.org/index.php/tsujournal/article/view/257870]
+- Tanggal akses: [12 November 2026]
+
+### Tabel Aturan
+
+Basis pengetahuan program terdiri dari lima aturan yang digunakan untuk proses inferensi.
+
+| ID | Kondisi (IF) | Operator | Kesimpulan (THEN) |
+|---|---|---|---|
+| R1 | Sirip robek atau koyak; tepi sirip menghitam | OR | Indikasi infeksi bakteri |
+| R2 | Indikasi infeksi bakteri; suhu air terlalu dingin atau kotor | AND | Sirip busuk (Fin Rot) |
+| R3 | Tubuh membengkak seperti buah pinus; sisik berdiri | AND | Penyakit Dropsy |
+| R4 | Muncul bintik putih seperti garam di tubuh; ikan sering bergesekan dengan dekorasi | AND | Penyakit Ich (White Spot) |
+| R5 | Ikan pasif di dasar akuarium; warna tubuh memudar | OR | Stres lingkungan |
+
+Keterangan:
+- **AND:** Seluruh kondisi dalam aturan harus terpenuhi.
+- **OR:** Minimal satu kondisi dalam aturan harus terpenuhi.
+
+## **4. Metode yang Dipilih dan Alasannya**
+
+### Metode Forward Chaining
+
+Metode yang digunakan dalam program ini adalah **Forward Chaining (FC)**. Forward Chaining merupakan metode penalaran yang dimulai dari fakta awal, kemudian mencocokkan fakta tersebut dengan aturan yang tersedia untuk memperoleh kesimpulan.
+
+Metode ini dipilih karena proses identifikasi dimulai dari gejala yang dimasukkan oleh pengguna. Gejala tersebut menjadi fakta awal yang digunakan sistem untuk menghasilkan kesimpulan secara bertahap.
+
+### Tahapan Proses
+
+**1. Input Fakta**
+
+Pengguna menjawab pertanyaan mengenai gejala yang dialami ikan cupang. Jawaban positif akan disimpan sebagai fakta awal.
+
+**2. Pencocokan Aturan**
+
+Sistem memeriksa setiap aturan dalam basis pengetahuan dan mencocokkan kondisi aturan dengan fakta yang tersedia.
+
+**3. Proses Inferensi**
+
+Jika kondisi aturan terpenuhi, sistem menghasilkan fakta baru berdasarkan bagian THEN dari aturan tersebut.
+
+**4. Penambahan Fakta Baru**
+
+Kesimpulan yang diperoleh dimasukkan ke dalam memori fakta sehingga dapat digunakan untuk memeriksa aturan berikutnya.
+
+**5. Pengulangan**
+
+Proses pencocokan aturan dilakukan kembali sampai tidak ditemukan aturan baru yang dapat dijalankan.
+
+**6. Hasil Identifikasi**
+
+Sistem menampilkan kesimpulan dan jejak aturan yang berhasil dijalankan.
+
+### Contoh Perhitungan Forward Chaining
+
+Misalnya, pengguna memberikan fakta awal:
+
+- F1 = Sirip robek atau koyak
+- F2 = Suhu air terlalu dingin atau kotor
+
+Proses inferensi:
+
+**Aturan R1:**
+
+IF sirip robek atau koyak OR tepi sirip menghitam
+
+THEN indikasi infeksi bakteri
+
+Karena F1 terpenuhi, maka:
+
+F1 → Indikasi infeksi bakteri
+
+**Aturan R2:**
+
+IF indikasi infeksi bakteri AND suhu air terlalu dingin atau kotor
+
+THEN sirip busuk (Fin Rot)
+
+Karena indikasi infeksi bakteri telah diperoleh dari R1 dan F2 merupakan fakta awal, maka:
+
+Indikasi infeksi bakteri AND F2 → Sirip busuk (Fin Rot)
+
+**Kesimpulan:**
+
+Sistem menghasilkan kesimpulan berupa kemungkinan masalah kesehatan ikan cupang, yaitu **Sirip Busuk (Fin Rot)**.
+
+## **5. Tiga Kasus Uji dan Screenshot**
+
+Pengujian dilakukan untuk mengetahui apakah sistem dapat menghasilkan kesimpulan berdasarkan fakta yang dimasukkan pengguna.
+
+### Kasus Uji 1: Sirip Busuk (Fin Rot)
+
+Input gejala:
+- Sirip robek atau koyak = Ya
+- Tepi sirip menghitam = Tidak
+- Suhu air terlalu dingin atau kotor = Ya
+- Gejala lainnya = Tidak
+
+Hasil yang diharapkan:
+- R1 menghasilkan indikasi infeksi bakteri.
+- R2 menghasilkan sirip busuk (Fin Rot).
+
+Screenshot hasil pengujian:
+
+[Masukkan Screenshot Kasus Uji 1]
+
+### Kasus Uji 2: Penyakit Dropsy
+
+Input gejala:
+- Tubuh membengkak seperti buah pinus = Ya
+- Sisik berdiri = Ya
+- Gejala lainnya = Tidak
+
+Hasil yang diharapkan:
+- R3 terpenuhi.
+- Sistem menghasilkan kesimpulan penyakit Dropsy.
+
+Screenshot hasil pengujian:
+
+[Masukkan Screenshot Kasus Uji 2]
+
+### Kasus Uji 3: Tidak Ditemukan Kesimpulan
+
+Input gejala:
+- Seluruh gejala yang ditanyakan = Tidak
+
+Hasil yang diharapkan:
+- Tidak ada aturan yang terpenuhi.
+- Sistem tidak menghasilkan kesimpulan masalah kesehatan.
+
+Screenshot hasil pengujian:
+
+[Masukkan Screenshot Kasus Uji 3]
+
+## **6. Batas Keberlakuan Sistem**
+
+Sistem pakar ini menggunakan basis pengetahuan yang terdiri dari lima aturan mengenai kemungkinan masalah kesehatan ikan cupang, dengan informasi yang dirujuk dari literatur perawatan ikan hias dan kesehatan ikan. Pengetahuan tersebut digunakan untuk membantu mengidentifikasi kemungkinan masalah berdasarkan gejala yang dimasukkan pengguna. Sistem ini ditujukan sebagai alat bantu identifikasi awal, bukan untuk menggantikan pemeriksaan atau diagnosis dari dokter hewan maupun tenaga profesional di bidang kesehatan ikan. Hasil yang diberikan hanya berupa saran awal sehingga pengguna tetap perlu melakukan pemeriksaan lebih lanjut untuk memastikan kondisi ikan cupang.
+
+**Catatan:** Bagian batas keberlakuan juga perlu ditampilkan pada program C++ agar sesuai dengan ketentuan tugas.
+
+## **7. Penggunaan Alat Bantu AI**
+
+AI digunakan sebagai alat bantu dalam proses penyusunan dokumentasi program, penjelasan metode Forward Chaining, serta penyusunan README. Implementasi dan pengujian program tetap perlu diperiksa dan dipahami oleh pengembang agar sesuai dengan kebutuhan tugas.
+
