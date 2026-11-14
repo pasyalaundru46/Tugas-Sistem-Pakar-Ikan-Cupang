@@ -173,7 +173,7 @@ Hasil yang diharapkan:
 
 Screenshot hasil pengujian:
 
-[Uji Coba 1](Uji Coba 1.png)
+![Screenshot hasil Uji Coba 1](./Uji%20Coba%201.png)
 
 ### Kasus Uji 2: Infeksi
 
@@ -193,7 +193,7 @@ Hasil yang diharapkan:
 
 Screenshot hasil pengujian:
 
-[Masukkan Screenshot Kasus Uji 2]
+![Screenshot hasil Uji Coba 2](./Uji%20coba%202.png)
 
 ### Kasus Uji 3: Tidak Ditemukan Kesimpulan
 
@@ -206,7 +206,7 @@ Hasil yang diharapkan:
 
 Screenshot hasil pengujian:
 
-[Masukkan Screenshot Kasus Uji 3]
+![Screenshot hasil Uji Coba 3](./Uji%20Coba%203.png)
 
 ## **6. Batas Keberlakuan Sistem**
 
@@ -217,4 +217,3 @@ Sistem pakar ini menggunakan basis pengetahuan yang terdiri dari lima aturan men
 ## **7. Penggunaan Alat Bantu AI**
 
 AI digunakan sebagai alat bantu dalam proses penyusunan dokumentasi program, penjelasan metode Forward Chaining, serta penyusunan README. Implementasi dan pengujian program tetap perlu diperiksa dan dipahami oleh pengembang agar sesuai dengan kebutuhan tugas.
-
